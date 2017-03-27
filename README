@@ -1,0 +1,23 @@
+
+Building
+----------
+Depends:
+	libgnutls-dev libssl-dev
+
+Configure build options with config.h
+
+Compile with make
+	make
+
+
+
+Running
+----------
+run agent with optional environment variables
+	./agent
+
+Start process to be monitored by either specifying the LD_PRELOAD variable at runtime or export ahead of time
+	LD_PRELOAD=/home/joe/agent/libagent.so wget "https://google.com/path/to/resource"
+
+	export LD_PRELOAD=/home/joe/agent/libagent.so
+	wget "https://google.com/path/to/resource"
