@@ -1,8 +1,11 @@
 CC=gcc
 CFLAGS=-Wall -fPIC
 LIBFLAGS=-shared -ldl
-LIBOUT=libagent.so
-AGENTOUT=agent
+LIBOUT=bin/libagent.so
+AGENTOUT=bin/agent
+DIRS=bin
+
+$(shell mkdir -p $(DIRS))
 
 all: libagent agent
 
@@ -13,7 +16,7 @@ debug: agent
 debug: agent.o
 
 agent: agent.o
-	$(CC) agent.o -o agent
+	$(CC) agent.o -o $(AGENTOUT)
 
 agent.o: agent.c
 	$(CC) -c agent.c
@@ -26,7 +29,7 @@ libagent.o: libagent.c
 
 http_parser.o:
 	$(MAKE) -C http-parser
-			
+
 clean:
 	rm -f *o $(LIBOUT) $(AGENTOUT)
 

@@ -2,7 +2,7 @@
 Building
 ----------
 Depends:
-	libgnutls-dev libssl-dev
+	libgnutls28-dev libssl-dev
 
 Configure build options with config.h
 
@@ -17,7 +17,7 @@ run agent with optional environment variables
 	./agent
 
 Start process to be monitored by either specifying the LD_PRELOAD variable at runtime or export ahead of time
-	LD_PRELOAD=/home/joe/agent/libagent.so wget "https://google.com/path/to/resource"
+	LD_PRELOAD=/path/to/agent/bin/libagent.so wget "https://google.com/path/to/resource"
 
 	export LD_PRELOAD=/home/joe/agent/libagent.so
 	wget "https://google.com/path/to/resource"
